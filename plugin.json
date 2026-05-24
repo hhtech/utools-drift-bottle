@@ -1,6 +1,6 @@
 {
   "pluginName": "问春风",
-  "description": "基于 GitHub Issues 的极简漂流瓶插件，支持丢出、打捞和回复。",
+  "description": "把一句话寄给海，也从海里捞回别人的心事。",
   "author": "OpenAI Codex",
   "homepage": "https://github.com/hhtech/utools-drift-bottle",
   "main": "index.html",
