@@ -1,12 +1,5 @@
+config.local.js
 server.log
 server.err.log
-
 Thumbs.db
 .DS_Store
-
-node_modules/
-dist/
-coverage/
-
-.idea/
-.vscode/

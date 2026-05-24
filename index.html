@@ -3,173 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>漂流瓶</title>
+    <title>问春风</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="app-shell">
-      <header class="hero">
-        <div>
-          <p class="eyebrow">uTools Plugin</p>
-          <h1>漂流瓶</h1>
-          <p class="hero-copy">
-            用 GitHub Issues 当海面。先丢一只瓶子，再去打捞别人的心事。
-          </p>
-        </div>
-        <div class="hero-actions">
-          <button id="refresh-btn" class="ghost-btn" type="button">刷新</button>
-          <button id="settings-toggle" class="ghost-btn" type="button">GitHub 配置</button>
-        </div>
-      </header>
-
-      <section id="status-banner" class="status-banner" aria-live="polite"></section>
-
-      <section id="settings-panel" class="panel hidden">
-        <div class="panel-header">
-          <div>
-            <h2>GitHub 配置</h2>
-            <p>没有服务器，插件会直接把数据写进你的 GitHub 仓库 Issues。</p>
-          </div>
-        </div>
-        <form id="settings-form" class="form-grid">
-          <label>
-            <span>仓库拥有者</span>
-            <input id="owner-input" name="owner" type="text" placeholder="例如 octocat" required />
-          </label>
-          <label>
-            <span>仓库名</span>
-            <input id="repo-input" name="repo" type="text" placeholder="例如 drift-bottle" required />
-          </label>
-          <label class="wide">
-            <span>GitHub Token</span>
-            <input
-              id="token-input"
-              name="token"
-              type="password"
-              placeholder="推荐 Fine-grained PAT，至少给 Issues 读写权限"
-              required
-            />
-          </label>
-          <div class="wide form-actions">
-            <button class="primary-btn" type="submit">保存并验证</button>
-            <button id="clear-settings-btn" class="ghost-btn" type="button">清空配置</button>
-          </div>
-        </form>
-        <p class="hint">
-          提示：因为底层是 GitHub，发出的瓶子和评论会带上你的 GitHub 用户名。
-        </p>
-      </section>
-
-      <main class="main-grid">
-        <section class="panel">
-          <div class="panel-header">
-            <div>
-              <h2>丢一个瓶子</h2>
-              <p>把想说的话扔进海里。丢过之后，才能开始打捞。</p>
-            </div>
-            <div id="throw-counter" class="badge">已丢 0 个</div>
-          </div>
-          <form id="throw-form" class="stack-form">
-            <label>
-              <span>内容</span>
-              <textarea
-                id="throw-input"
-                name="message"
-                rows="8"
-                maxlength="1000"
-                placeholder="写点什么吧，1000 字以内。"
-                required
-              ></textarea>
-            </label>
-            <div class="form-actions">
-              <button id="throw-btn" class="primary-btn" type="submit">丢出</button>
-            </div>
-          </form>
-        </section>
-
-        <section class="panel">
-          <div class="panel-header">
-            <div>
-              <h2>打捞</h2>
-              <p>随机捞一个瓶子，优先帮你捞别人丢出的内容。</p>
-            </div>
-            <div id="salvage-lock" class="badge muted">未解锁</div>
-          </div>
-          <div class="salvage-box">
-            <button id="salvage-btn" class="primary-btn wide-btn" type="button">开始打捞</button>
-            <p class="hint">
-              规则：必须先丢过至少 1 个瓶子，才允许打捞。
-            </p>
-          </div>
-        </section>
-      </main>
-
-      <section class="panel detail-panel">
-        <div class="panel-header">
-          <div>
-            <h2>当前捞到的瓶子</h2>
-            <p id="current-bottle-subtitle">还没有捞到瓶子。</p>
-          </div>
-          <a
-            id="issue-link"
-            class="text-link hidden"
-            href="#"
-            target="_blank"
-            rel="noreferrer"
-          >
-            在 GitHub 打开
-          </a>
-        </div>
-
-        <div id="empty-bottle" class="empty-state">
-          海面很安静。先配置 GitHub，然后丢一个瓶子试试。
-        </div>
-
-        <article id="bottle-detail" class="bottle-detail hidden">
-          <div class="meta-row">
-            <span id="bottle-author" class="author-pill"></span>
-            <span id="bottle-time" class="meta-text"></span>
-          </div>
-          <div id="bottle-content" class="message-card"></div>
-        </article>
-
-        <section id="comment-composer" class="composer hidden">
-          <div class="composer-top">
-            <strong>评论 / 回复</strong>
-            <button id="cancel-reply-btn" class="text-btn hidden" type="button">取消回复</button>
-          </div>
-          <div id="reply-target" class="reply-target hidden"></div>
-          <textarea
-            id="comment-input"
-            rows="4"
-            maxlength="1000"
-            placeholder="留下你的评论。"
-          ></textarea>
-          <div class="form-actions">
-            <button id="submit-comment-btn" class="primary-btn" type="button">发送</button>
-          </div>
-        </section>
-
-        <section id="comments-section" class="comments hidden">
-          <div class="comments-head">
-            <h3>评论区</h3>
-            <span id="comments-count" class="badge muted">0 条</span>
-          </div>
-          <div id="comments-list" class="comments-list"></div>
-        </section>
-      </section>
-
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <h2>我的最近漂流瓶</h2>
-            <p>方便快速确认自己已经丢过什么。</p>
-          </div>
-        </div>
-        <div id="my-bottles" class="mini-list empty-list">还没有记录。</div>
-      </section>
+    <div class="page">
+      <div id="status-live" class="sr-only" aria-live="polite"></div>
+      <div id="notice" class="notice hidden" aria-live="polite"></div>
+      <div class="button-row">
+        <button id="throw-open-btn" class="main-btn" type="button">丢一个</button>
+        <button id="salvage-open-btn" class="main-btn" type="button">捡一个</button>
+      </div>
     </div>
 
+    <div id="overlay" class="overlay hidden">
+      <div class="modal">
+        <div id="modal-display" class="modal-display hidden"></div>
+        <textarea id="modal-textarea" class="modal-textarea"></textarea>
+        <div class="modal-button-row">
+          <button id="modal-action-btn" class="modal-btn" type="button"></button>
+          <button id="modal-cancel-btn" class="modal-btn hidden" type="button">取消</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./config.local.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>

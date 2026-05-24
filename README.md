@@ -1,42 +1,48 @@
-# 漂流瓶 uTools 插件
+# 问春风
 
-一个不依赖服务器的简洁漂流瓶插件，数据直接落在 GitHub Issues。
+心事无凭，且问春风。
 
-## 已实现功能
+`问春风` 是一个极简的 uTools 漂流瓶插件。  
+你可以把一句话寄给海，也可以从海里捞回别人的只言片语。
 
-- 丢出漂流瓶
-- 打捞漂流瓶
-- 评论
-- 回复评论
-- 规则限制：必须先丢过至少 1 个瓶子，才允许打捞
+## 功能
 
-## 数据设计
+- 丢一个
+- 捡一个
+- 回复
+- 必须先丢出至少一个瓶子，才能开始打捞
+
+## 设计
+
+- 首页只保留两个按钮：`丢一个`、`捡一个`
+- 瓶子主内容为两行结构：
+  第一行内容
+  第二行 `#编号 · 相对时间`
+- 回复按时间顺序展示
+- 违禁词采用温和提示，并自动消失
+- 回复成功提示 `功德 +1`
+
+## 数据方案
 
 - `Issue` 表示一个漂流瓶
-- `Issue Comment` 表示评论或回复
-- 瓶子正文用 `<!-- drift-bottle -->` 做标记，避免和仓库里的其他 Issue 混在一起
-- 回复用 `<!-- drift-reply-to:评论ID -->` 做轻量关联
+- `Issue Comment` 表示一条回复
+- 瓶子正文用 `<!-- drift-bottle -->` 作为识别标记
 
-## 使用方式
+## 配置方式
 
-1. 新建一个 GitHub 仓库，公开或私有都可以。
-2. 创建一个 GitHub Personal Access Token。
-3. Token 至少给这个仓库的 `Issues` 读写权限。
-4. 打开 uTools 开发者工具，导入本目录里的 `plugin.json`。
-5. 进入插件后，填写：
-   - 仓库拥有者
-   - 仓库名
-   - GitHub Token
+1. 准备一个 GitHub 仓库
+2. 创建 Fine-grained Personal Access Token
+3. 为该仓库授予最小权限：
+   `Issues: Read and write`
+   `Metadata: Read-only`
+4. 在 [config.local.js](/D:/java/sub2ap/config.local.js:1) 中填写：
+   `owner`
+   `repo`
+   `token`
+5. 在 uTools 开发者工具中导入 [plugin.json](/D:/java/sub2ap/plugin.json:1)
 
-## 开发说明
+## 说明
 
-- 插件入口：[plugin.json](D:/java/sub2ap/plugin.json)
-- 页面入口：[index.html](D:/java/sub2ap/index.html)
-- 样式文件：[style.css](D:/java/sub2ap/style.css)
-- 逻辑文件：[script.js](D:/java/sub2ap/script.js)
-
-## 注意
-
-- 因为底层是 GitHub API，发言会携带 GitHub 用户名。
-- 当前实现为了简单，打捞时优先捞别人的瓶子；如果海里只有你自己的瓶子，会允许捞自己的内容做测试。
-- 本地配置优先使用 `utools.dbStorage` 保存；如果你直接在浏览器里打开页面，则回退到 `localStorage`。
+- 当前实现直接使用 GitHub API，不依赖独立服务器
+- `config.local.js` 只保存在本地，不应提交到仓库
+- 为保持简单稳定，当前只读取最近 100 个瓶子和最近 100 条回复
