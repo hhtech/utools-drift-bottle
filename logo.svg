@@ -1,0 +1,24 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sea" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#ee7a3b" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#f5fbfd" />
+  <path
+    d="M44 161C63 147 81 140 99 140C120 140 133 151 154 151C171 151 186 145 212 128V184H44V161Z"
+    fill="url(#sea)"
+    opacity="0.16"
+  />
+  <path
+    d="M118 38H150L145 66L178 126C182 134 179 145 171 149L114 177C106 182 95 179 90 171L57 116C52 108 55 97 64 92L97 71L93 38H118Z"
+    fill="white"
+    stroke="#163043"
+    stroke-width="12"
+    stroke-linejoin="round"
+  />
+  <path d="M86 111L142 84" stroke="#0f766e" stroke-width="12" stroke-linecap="round" />
+  <path d="M100 137L156 110" stroke="#ee7a3b" stroke-width="12" stroke-linecap="round" />
+  <path d="M102 38H141" stroke="#163043" stroke-width="12" stroke-linecap="round" />
+</svg>

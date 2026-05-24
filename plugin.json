@@ -1,0 +1,16 @@
+{
+  "pluginName": "漂流瓶",
+  "description": "基于 GitHub Issues 的简洁漂流瓶插件，支持丢出、打捞、评论和回复。",
+  "author": "OpenAI Codex",
+  "homepage": "https://github.com",
+  "main": "index.html",
+  "logo": "logo.svg",
+  "version": "1.0.0",
+  "features": [
+    {
+      "code": "drift-bottle",
+      "explain": "漂流瓶",
+      "cmds": ["漂流瓶", "瓶子", "drift"]
+    }
+  ]
+}
